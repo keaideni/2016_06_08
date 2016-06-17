@@ -163,7 +163,7 @@ void OP::getValue(const int& str, const int& i, double& y)
 
 
 
-void OP::findDim(const OP& a, const OP& b, std::map<int, int> &oldDim, std::map<std::pair<int, int>, int, classcom> &startDim)
+void OP::findDim(const OP& a, const OP& b, std::unordered_map<int, int> &oldDim, std::map<std::pair<int, int>, int, classcom> &startDim)
 {
 	for (auto ita = a.QDim.begin(); ita != a.QDim.end(); ita++)
 	{

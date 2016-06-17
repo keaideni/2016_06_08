@@ -5,6 +5,7 @@
 #include <utility>
 #include <fstream>
 #include <iomanip>
+#include <unordered_map>
 #include <map>
 #include <vector>
 #include <math.h>
@@ -26,9 +27,9 @@ using namespace Eigen;
 class OP
 {
 public:
-	std::map<int, int> QDim;
-	std::map<int, MatrixXd> QMat;
-	std::map<int, int> RLQ;
+	std::unordered_map<int, int> QDim;
+	std::unordered_map<int, MatrixXd> QMat;
+	std::unordered_map<int, int> RLQ;
 
 
 	static int Max;
@@ -47,7 +48,7 @@ public:
 	void getValue(const int& str, const int& i, double& y);
 
 
-	void findDim(const OP& a, const OP& b, std::map<int, int>& oldDim, std::map<std::pair<int, int>, int, classcom>& startDim);
+	void findDim(const OP& a, const OP& b, std::unordered_map<int, int>& oldDim, std::map<std::pair<int, int>, int, classcom>& startDim);
 	void kronO(const OP& a, const OP&b);
 	//void getmat(MatrixXd& oldmat, const MatrixXd& tempmat, const int& startL1, const int& startR1);
 	void transO(const OP& a);
