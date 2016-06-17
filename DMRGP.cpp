@@ -60,6 +60,12 @@ DMRGP::DMRGP(Parameter& para)
 	saveT = 0;
 	Abegin = clock();
 
+
+	//Sys.show();
+	//Env.show();
+
+
+
 	Fdata.open("./result/data");
 	if (!Fdata.is_open())
 	{
@@ -291,7 +297,7 @@ void DMRGP::SweepP(Parameter& para, int& OS, int& OE, int& dir)
 		{
 
 			SaveAll << "the " << (flag + 1) << "th Sweep" << std::endl;
-			//std::cout<<"the "<<(flag+1)<<"th Sweep"<<std::endl;
+			std::cout<<"the "<<(flag+1)<<"th Sweep"<<std::endl;
 			//dir*=(-1);//local here for the first left direction sweep
 
 
