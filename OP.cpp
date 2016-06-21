@@ -163,7 +163,7 @@ void OP::getValue(const int& str, const int& i, double& y)
 
 
 
-void OP::findDim(const OP& a, const OP& b, std::unordered_map<int, int> &oldDim, std::unordered_map<std::pair<int, int>, int> &startDim)
+void OP::findDim(const OP& a, const OP& b, std::unordered_map<int, int> &oldDim, std::unordered_map<std::pair<int, int>, int, classcom> &startDim)
 {
 	for (auto ita = a.QDim.begin(); ita != a.QDim.end(); ita++)
 	{
@@ -203,7 +203,7 @@ void OP::kronO(const OP &a, const OP &b)
 
 
 	//find the dimention of each good quantum number, and label the place to put the kron of two blocks.
-	std::unordered_map<std::pair<int, int>, int> startDim;
+	std::unordered_map<std::pair<int, int>, int, classcom> startDim;
 	findDim(a, b, QDim, startDim);
 
 

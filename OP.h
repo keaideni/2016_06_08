@@ -14,12 +14,12 @@
 
 struct classcom
 {
-	bool operator()(const std::pair<int, int>& l, const std::pair<int, int>& r) const
+	size_t operator()(const std::pair<int, int>& l) const
 	{
-		return (l.first + l.second < r.first + r.second) 
-			|| (l.first + l.second == r.first + r.second && l.first < r.first);
+		return (size_t) ((l.first<<20) ^l.second);
 	}
 };
+
 
 
 using namespace Eigen;
@@ -48,7 +48,7 @@ public:
 	void getValue(const int& str, const int& i, double& y);
 
 
-	void findDim(const OP& a, const OP& b, std::unordered_map<int, int>& oldDim, std::unordered_map<std::pair<int, int>, int>& startDim);
+	void findDim(const OP& a, const OP& b, std::unordered_map<int, int>& oldDim, std::unordered_map<std::pair<int, int>, int, classcom>& startDim);
 	void kronO(const OP& a, const OP&b);
 	//void getmat(MatrixXd& oldmat, const MatrixXd& tempmat, const int& startL1, const int& startR1);
 	void transO(const OP& a);
